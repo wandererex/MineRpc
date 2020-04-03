@@ -12,7 +12,12 @@
     <artifactId>mine-rpc</artifactId>
     <version>0.0.1</version>
     <modules>
-
+        <module>registry</module>
+        <module>spi</module>
+        <module>cluster</module>
+        <module>common</module>
+        <module>rpc</module>
+        <module>remoting</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -76,13 +81,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <version>2.1.1.RELEASE</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.16.18</version>
-                <scope>provided</scope>
             </dependency>
 
             <dependency>
