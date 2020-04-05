@@ -3,18 +3,18 @@ package me.stevenkin.minerpc.spi.proxy;
 import me.stevenkin.minerpc.common.URL;
 import me.stevenkin.minerpc.spi.Adaptive;
 import me.stevenkin.minerpc.spi.ExtensionLoader;
-import me.stevenkin.minerpc.spi.ProxyFactory;
+import me.stevenkin.minerpc.spi.ProxyAdaptiveFactory;
 import me.stevenkin.minerpc.spi.Spi;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class JdkProxyFactory implements ProxyFactory {
+public class JdkProxyAdaptiveFactory implements ProxyAdaptiveFactory {
     @Override
     public <T> T getAdaptiveProxy(Class<T> spiClass) {
         if (!spiClass.isAnnotationPresent(Spi.class))
             throw new IllegalArgumentException("spi class must have spi annotation");
-        return (T) Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{spiClass}, (p, m, args) -> {
+        return (T) Proxy.newProxyInstance(ProxyAdaptiveFactory.class.getClassLoader(), new Class[]{spiClass}, (p, m, args) -> {
             if (!m.isAnnotationPresent(Adaptive.class))
                 throw new RuntimeException("this method" + m + "can not be invoked");
             String[] values = m.getDeclaredAnnotation(Adaptive.class).value();

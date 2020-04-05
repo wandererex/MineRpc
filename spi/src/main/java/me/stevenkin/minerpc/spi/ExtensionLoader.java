@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.*;
@@ -98,7 +97,7 @@ public class ExtensionLoader<T> {
                 }
             }
         }
-        return null;
+        return instance;
     }
 
 
@@ -210,7 +209,7 @@ public class ExtensionLoader<T> {
     }
 
     private T createAdaptiveExtension() {
-        return ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension().getAdaptiveProxy(type);
+        return ExtensionLoader.getExtensionLoader(ProxyAdaptiveFactory.class).getAdaptiveExtension().getAdaptiveProxy(type);
     }
 
     public synchronized List<T> getActivateExtension(URL url) {
