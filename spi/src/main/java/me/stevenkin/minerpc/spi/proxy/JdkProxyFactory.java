@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
 
 public class JdkProxyFactory implements ProxyFactory {
     @Override
-    public <T> T getAdaptiveExtension(Class<T> spiClass) {
+    public <T> T getAdaptiveProxy(Class<T> spiClass) {
         if (!spiClass.isAnnotationPresent(Spi.class))
             throw new IllegalArgumentException("spi class must have spi annotation");
         return (T) Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{spiClass}, (p, m, args) -> {

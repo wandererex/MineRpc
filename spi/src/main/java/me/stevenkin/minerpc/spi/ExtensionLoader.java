@@ -4,12 +4,12 @@ import me.stevenkin.minerpc.common.URL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.print.DocFlavor;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
 public class ExtensionLoader<T> {
@@ -87,6 +87,17 @@ public class ExtensionLoader<T> {
     }
 
     private Object injectExtension(Object instance) {
+        if (extensionFactory != null) {
+            for (Method method : instance.getClass().getMethods()) {
+                if (method.getName().startsWith("set") && method.getName().length() > 3 && method.getParameterTypes().length == 1 && Modifier.isPublic(method.getModifiers())) {
+                    try {
+                        method.invoke(instance, ExtensionLoader.getExtensionLoader(method.getParameterTypes()[0]).getExtension(method.getName().substring(3)));
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
         return null;
     }
 
@@ -199,7 +210,7 @@ public class ExtensionLoader<T> {
     }
 
     private T createAdaptiveExtension() {
-        return ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension().getAdaptiveExtension(type);
+        return ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension().getAdaptiveProxy(type);
     }
 
     public synchronized List<T> getActivateExtension(URL url) {

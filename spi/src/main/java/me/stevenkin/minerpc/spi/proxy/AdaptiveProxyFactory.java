@@ -1,6 +1,5 @@
 package me.stevenkin.minerpc.spi.proxy;
 
-import me.stevenkin.minerpc.common.URL;
 import me.stevenkin.minerpc.spi.Adaptive;
 import me.stevenkin.minerpc.spi.ExtensionLoader;
 import me.stevenkin.minerpc.spi.ProxyFactory;
@@ -14,13 +13,13 @@ public class AdaptiveProxyFactory implements ProxyFactory {
     }
 
     @Override
-    public <T> T getAdaptiveExtension(Class<T> spiClass) {
+    public <T> T getAdaptiveProxy(Class<T> spiClass) {
         String proxyType = "jdk";
         if (defaultProxyType != null && !defaultProxyType.equals(""))
             proxyType = defaultProxyType;
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getExtension(proxyType);
         if (proxyFactory == null)
             throw new IllegalStateException("proxy factory must not be null");
-        return proxyFactory.getAdaptiveExtension(spiClass);
+        return proxyFactory.getAdaptiveProxy(spiClass);
     }
 }
