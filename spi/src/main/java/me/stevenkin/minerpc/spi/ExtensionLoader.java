@@ -90,7 +90,7 @@ public class ExtensionLoader<T> {
             for (Method method : instance.getClass().getMethods()) {
                 if (method.getName().startsWith("set") && method.getName().length() > 3 && method.getParameterTypes().length == 1 && Modifier.isPublic(method.getModifiers())) {
                     try {
-                        method.invoke(instance, ExtensionLoader.getExtensionLoader(method.getParameterTypes()[0]).getExtension(method.getName().substring(3)));
+                        method.invoke(instance, extensionFactory.getExtension(method.getParameterTypes()[0], method.getName().substring(3)));
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -234,5 +234,9 @@ public class ExtensionLoader<T> {
                 return true;
         }
         return false;
+    }
+
+    public Set<String> getExtensionNames() {
+        return new HashSet<>(nameCache);
     }
 }
