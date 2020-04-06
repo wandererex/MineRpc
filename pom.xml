@@ -18,6 +18,7 @@
         <module>common</module>
         <module>rpc</module>
         <module>remoting</module>
+        <module>registry-api</module>
     </modules>
     <packaging>pom</packaging>
 
