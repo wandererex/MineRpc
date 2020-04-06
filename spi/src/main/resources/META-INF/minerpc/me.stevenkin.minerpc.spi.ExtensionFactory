@@ -1,0 +1,3 @@
+adaptive=me.stevenkin.minerpc.spi.factory.AdaptiveExtensionFactory
+spi=me.stevenkin.minerpc.spi.factory.SpiExtensionFactory
+spring=me.stevenkin.minerpc.spi.factory.SpringExtensionFactory

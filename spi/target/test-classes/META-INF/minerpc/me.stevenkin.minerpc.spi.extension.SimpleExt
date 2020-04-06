@@ -1,0 +1,3 @@
+adaptive=me.stevenkin.minerpc.spi.impl.AdaptiveSimpleExtImpl
+impl1=me.stevenkin.minerpc.spi.impl.SimpleExtImpl1
+impl2=me.stevenkin.minerpc.spi.impl.SimpleExtImpl2
