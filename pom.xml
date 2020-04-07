@@ -2,23 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-        <parent>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-parent</artifactId>
-            <version>2.1.1.RELEASE</version>
-        </parent>
-
     <groupId>me.stevenkin</groupId>
     <artifactId>mine-rpc</artifactId>
     <version>0.0.1</version>
     <modules>
-        <module>registry</module>
-        <module>spi</module>
-        <module>cluster</module>
-        <module>common</module>
-        <module>rpc</module>
-        <module>remoting</module>
-        <module>registry-api</module>
+        <module>minerpc-registry</module>
+        <module>minerpc-spi</module>
+        <module>minerpc-cluster</module>
+        <module>minerpc-common</module>
+        <module>minerpc-rpc</module>
+        <module>minerpc-spring</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -77,12 +70,6 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>2.1.1.RELEASE</version>
             </dependency>
 
             <dependency>
