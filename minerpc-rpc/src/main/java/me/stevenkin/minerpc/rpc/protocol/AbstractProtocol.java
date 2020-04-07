@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class AbstractProtocol implements Protocol {
-    private Map<String, Exporter> exporterCache = new ConcurrentHashMap<>();
+    protected Map<String, Exporter> exporterCache = new ConcurrentHashMap<>();
 
-    private Map<String, Invoker> invokerCache = new ConcurrentHashMap<>();
+    protected Map<String, Invoker> invokerCache = new ConcurrentHashMap<>();
 
     @Override
     public Exporter export(Invoker invoker) {
