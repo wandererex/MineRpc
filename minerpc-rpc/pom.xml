@@ -10,10 +10,38 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>minerpc-rpc</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>minerpc-rpc-api</module>
-    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>me.stevenkin</groupId>
+            <artifactId>minerpc-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>me.stevenkin</groupId>
+            <artifactId>minerpc-spi</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>me.stevenkin</groupId>
+            <artifactId>minerpc-registry-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>me.stevenkin</groupId>
+            <artifactId>minerpc-server-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>me.stevenkin</groupId>
+            <artifactId>minerpc-client-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

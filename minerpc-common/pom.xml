@@ -12,7 +12,7 @@
     <artifactId>minerpc-common</artifactId>
 
     <dependencies>
-        <!-- log api -->
+        <!-- log rpc -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

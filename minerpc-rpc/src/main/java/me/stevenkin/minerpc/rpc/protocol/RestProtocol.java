@@ -1,4 +1,4 @@
-package me.stevenkin.minerpc.rpc.api.protocol;
+package me.stevenkin.minerpc.rpc.protocol;
 
 import me.stevenkin.minerpc.common.URL;
 import me.stevenkin.minerpc.rpc.api.Exporter;
