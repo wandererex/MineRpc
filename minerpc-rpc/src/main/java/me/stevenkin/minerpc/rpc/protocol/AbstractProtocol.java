@@ -1,9 +1,9 @@
 package me.stevenkin.minerpc.rpc.protocol;
 
 import me.stevenkin.minerpc.common.URL;
-import me.stevenkin.minerpc.rpc.api.Exporter;
-import me.stevenkin.minerpc.rpc.api.Invoker;
-import me.stevenkin.minerpc.rpc.api.Protocol;
+import me.stevenkin.minerpc.rpc.Exporter;
+import me.stevenkin.minerpc.rpc.Invoker;
+import me.stevenkin.minerpc.rpc.Protocol;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

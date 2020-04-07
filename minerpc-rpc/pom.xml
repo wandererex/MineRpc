@@ -26,19 +26,19 @@
 
         <dependency>
             <groupId>me.stevenkin</groupId>
-            <artifactId>minerpc-registry-api</artifactId>
+            <artifactId>minerpc-registry</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
             <groupId>me.stevenkin</groupId>
-            <artifactId>minerpc-server-api</artifactId>
+            <artifactId>minerpc-server</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
             <groupId>me.stevenkin</groupId>
-            <artifactId>minerpc-client-api</artifactId>
+            <artifactId>minerpc-client</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
