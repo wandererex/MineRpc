@@ -1,1 +1,0 @@
-package me.stevenkin.minerpc.common;

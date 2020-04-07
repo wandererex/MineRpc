@@ -12,6 +12,11 @@
         <module>minerpc-common</module>
         <module>minerpc-rpc</module>
         <module>minerpc-spring</module>
+        <module>minerpc-remoting</module>
+        <module>minerpc-server</module>
+        <module>minerpc-client</module>
+        <module>minerpc-server-api</module>
+        <module>minerpc-client/minerpc-client-api</module>
     </modules>
     <packaging>pom</packaging>
 
