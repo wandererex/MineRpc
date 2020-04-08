@@ -1,4 +1,4 @@
-package me.stevenkin.minerpc.server.api;
+package me.stevenkin.minerpc.endpoint.server;
 
 import me.stevenkin.minerpc.common.URL;
 import me.stevenkin.minerpc.spi.Adaptive;

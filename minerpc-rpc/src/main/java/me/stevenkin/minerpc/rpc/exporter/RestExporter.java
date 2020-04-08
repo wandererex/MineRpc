@@ -1,8 +1,8 @@
 package me.stevenkin.minerpc.rpc.exporter;
 
+import me.stevenkin.minerpc.endpoint.server.Server;
 import me.stevenkin.minerpc.rpc.Exporter;
 import me.stevenkin.minerpc.rpc.Invoker;
-import me.stevenkin.minerpc.server.api.Server;
 
 import java.util.Map;
 

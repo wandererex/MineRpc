@@ -1,14 +1,34 @@
 package me.stevenkin.minerpc.rpc;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public interface Result {
-    Object getValue();
+public class Result {
+    private final Object value;
 
-    Throwable getException();
+    private final Throwable exception;
 
-    boolean hasException();
+    private final Map<String, Object> attachs;
 
-    Map<String, String> getAttachments();
+    public Result(Object value, Throwable exception, Map<String, Object> attachs) {
+        this.value = value;
+        this.exception = exception;
+        this.attachs = attachs;
+    }
 
+    public boolean hasException() {
+        return exception != null;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public Throwable getException() {
+        return exception;
+    }
+
+    public Map<String, Object> getAttachs() {
+        return new HashMap<>(attachs);
+    }
 }

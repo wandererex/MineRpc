@@ -1,16 +1,52 @@
 package me.stevenkin.minerpc.rpc;
 
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 
-public interface Invocation {
-    String getMethodName();
+public class Invocation {
+    private final Class serviceClass;
 
-    Class<?>[] getParameterTypes();
+    private final Method methodName;
 
-    Object[] getArguments();
+    private final Class[] paramTypes;
 
-    Map<String, String> getAttachments();
+    private final Object[] args;
 
-    Invoker getInvoker();
+    private final Map<String, Object> attachs;
 
+    private final Invoker invoker;
+
+    public Invocation(Class serviceClass, Method methodName, Class[] paramTypes, Object[] args, Map<String, Object> attachs, Invoker invoker) {
+        this.serviceClass = serviceClass;
+        this.methodName = methodName;
+        this.paramTypes = paramTypes;
+        this.args = args;
+        this.attachs = attachs;
+        this.invoker = invoker;
+    }
+
+    public Class getServiceClass() {
+        return serviceClass;
+    }
+
+    public Method getMethodName() {
+        return methodName;
+    }
+
+    public Class[] getParamTypes() {
+        return paramTypes;
+    }
+
+    public Object[] getArgs() {
+        return args;
+    }
+
+    public Map<String, Object> getAttachs() {
+        return new HashMap<>(attachs);
+    }
+
+    public Invoker getInvoker() {
+        return invoker;
+    }
 }
